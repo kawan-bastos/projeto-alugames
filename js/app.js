@@ -1,3 +1,5 @@
+let jogosAlugados = 0; // contador de jogos alugados
+
 function alterarStatus(id) {
     let game = document.getElementById(`game-${id}`); // seleciona o jogo com base no id recebido
     let botao = game.querySelector('.dashboard__item__button'); // seleciona o botao dentro do jogo selecionado 
@@ -9,6 +11,8 @@ function alterarStatus(id) {
         botao.innerHTML = "Devolver";
         botao.classList.add('dashboard__item__button--return');
         img.classList.add('dashboard__item__img--rented');
+        jogosAlugados++; 
+        console.log(jogosAlugados);
     } else{
         if (botao.innerHTML === "Devolver"){
         let confirmacao = prompt("Tem certeza que deseja devolver o jogo? (sim/não)");
@@ -20,3 +24,4 @@ function alterarStatus(id) {
         }
     }
 }
+
