@@ -9,10 +9,14 @@ function alterarStatus(id) {
         botao.innerHTML = "Devolver";
         botao.classList.add('dashboard__item__button--return');
         img.classList.add('dashboard__item__img--rented');
-    } else { // toda vez que o botao tiver "Devolver", ao clicar ele deve mudar para "Alugar"
-        botao.innerHTML = "Alugar";
-        botao.classList.remove('dashboard__item__button--return');
-        img.classList.remove('dashboard__item__img--rented');  
-        
+    } else{
+        if (botao.innerHTML === "Devolver"){
+        let confirmacao = prompt("Tem certeza que deseja devolver o jogo? (sim/não)");
+            if (confirmacao.toLowerCase() === "sim"){
+            botao.innerHTML = "Alugar";
+            botao.classList.remove('dashboard__item__button--return');
+            img.classList.remove('dashboard__item__img--rented');
+            } 
+        }
     }
 }
